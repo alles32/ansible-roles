@@ -1,0 +1,11 @@
+---
+apache:
+    conf_available_path: conf-available
+    sites_available_path: sites-available
+    conf_enabled_path: conf-enabled
+    sites_enabled_path: sites-enabled
+    service: apache2
+    server_root: /etc/apache2
+    mods_available_path: mods-available
+    user: www-data
+    logs_dir: /var/log/apache2    

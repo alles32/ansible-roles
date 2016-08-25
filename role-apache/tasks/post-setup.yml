@@ -1,0 +1,19 @@
+---
+- name: Make sure the enabled configuration are present
+  become: yes
+  file:
+    src: "../{{ apache.conf_available_path }}/override.conf"
+    path: "{{ apache.server_root }}/{{ apache.conf_enabled_path }}/override.conf"
+    state: link
+    force: yes
+  notify: reload apache
+
+- name: Make sure the enabled virtualhosts are present
+  become: yes
+  file:
+    src: "../{{ apache.sites_available_path }}/{{ item.directives.ServerName }}.conf"
+    path: "{{ apache.server_root }}/{{ apache.sites_enabled_path }}/{{ item.directives.ServerName }}.conf"
+    state: link
+    force: yes
+  with_items: "{{ apache.virtualhosts }}"
+  notify: reload apache

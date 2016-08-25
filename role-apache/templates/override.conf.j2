@@ -1,0 +1,20 @@
+# {{ ansible_managed }}
+
+# Global
+Timeout {{ apache["Timeout"] | default("300") }}
+KeepAlive {{ apache["KeepAlive"] | default("On") }}
+MaxKeepAliveRequests {{ apache["MaxKeepAliveRequests"] | default("100") }}
+KeepAliveTimeout {{ apache["KeepAliveTimeout"] | default("5") }}
+LogLevel {{ apache["LogLevel"] | default("warn") }}
+
+# Security
+ServerName {{ apache["ServerName"] | default("server") }}
+ServerTokens {{ apache["ServerTokens"] | default("OS") }}
+ServerSignature {{ apache["ServerSignature"] | default("On") }}
+TraceEnable {{ apache["TraceEnable"] | default("Off") }}
+
+<IfModule mod_ssl.c>
+    SSLCipherSuite {{ apache["SSLCipherSuite"] | default("HIGH:MEDIUM:!aNULL:!MD5") }}
+    SSLHonorCipherOrder {{ apache["SSLHonorCipherOrder"] | default("on") }}
+    SSLProtocol {{ apache["SSLProtocol"] | default("all") }}
+</IfModule>
