@@ -1,0 +1,24 @@
+---
+dependencies:
+  - { role: Aplyca.MySQL, tags: ["mysql"] }
+  - { role: Aplyca.Apache, tags: ["apache"] }
+  - { role: Aplyca.PHP, tags: ["php"] }
+
+galaxy_info:
+  author: Aplyca
+  description: LAMP server for Debian/Ubuntu.
+  company: "Aplyca SAS"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.4
+  platforms:
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: CentOS
+    versions:
+    - all
+  categories:
+    - web
